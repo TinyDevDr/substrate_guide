@@ -22,8 +22,29 @@ pub mod pallet {
 	/// Configure the pallet by specifying the parameters and types on which it depends.
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
-		/// Because this pallet emits events, it depends on the runtime's definition of an event.
+		/// The overarching event type.
 		type Event: From<Event<Self>> + IsType<<Self as frame_system::Config>::Event>;
+
+		// /// The currency trait.
+		// type Currency: ReservableCurrency<Self::AccountId>;
+
+		// /// Reservation fee.
+		// #[pallet::constant]
+		// type ReservationFee: Get<BalanceOf<Self>>;
+
+		// /// What to do with slashed funds.
+		// type Slashed: OnUnbalanced<NegativeImbalanceOf<Self>>;
+
+		// /// The origin which may forcibly set or remove a name. Root can always do this.
+		// type ForceOrigin: EnsureOrigin<Self::Origin>;
+
+		// /// The minimum length a name may be.
+		// #[pallet::constant]
+		// type MinLength: Get<u32>;
+
+		// /// The maximum length a name may be.
+		// #[pallet::constant]
+		// type MaxLength: Get<u32>;
 	}
 
 	#[pallet::pallet]
